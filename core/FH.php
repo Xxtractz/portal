@@ -1,6 +1,8 @@
 <?php
 namespace Core;
+use App\Models\Users;
 use Core\Session;
+use http\Client\Curl\User;
 
 class FH {
 
@@ -261,6 +263,10 @@ class FH {
       $html .= '<option value="'.$value.'"'.$selStr.'>'.$display.'</option>';
     }
     return $html;
+  }
+
+  public static function getUser(){
+      return Users::currentUser();
   }
 
 }

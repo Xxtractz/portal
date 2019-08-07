@@ -4,8 +4,8 @@ use Core\FH;
 <?php $this->start('head'); ?>
 <?php $this->end(); ?>
 <?php $this->start('body'); ?>
-<div class="row align-items-center justify-content-center">
-    <div class="col-md-6 bg-light p-3">
+<div class="col-md-8 mx-auto pt-lg-5">
+    <div class="jumbotron text-center p-5">
     <h3 class="text-center">Log In</h3>
     <form class="form" action="<?=PROOT?>register/login" method="post">
       <?= FH::csrfInput() ?>

@@ -15,6 +15,16 @@ use Core\FH;
     <link rel="stylesheet" href="<?=PROOT?>css/custom.css?v=<?=VERSION?>" media="screen" title="no title" charset="utf-8">
     <link rel="stylesheet" href="<?=PROOT?>css/alertMsg.min.css?v=<?=VERSION?>" media="screen" title="no title" charset="utf-8">
 
+      <!-- Font Awesome -->
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+      <!-- Bootstrap core CSS -->
+      <link type="text/css" href="<?=PROOT?>css/bootstrap.min.css" rel="stylesheet">
+      <!-- Material Design Bootstrap -->
+      <link type="text/css" href="<?=PROOT?>css/mdb.min.css" rel="stylesheet">
+      <!-- Your custom styles (optional) -->
+      <link type="text/css" href="<?=PROOT?>css/style.css" rel="stylesheet">
+      <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+
     <?= $this->content('head'); ?>
 
   </head>
@@ -26,7 +36,14 @@ use Core\FH;
     </div>
     <script src="<?=PROOT?>js/jQuery-3.3.1.min.js"></script>
     <script src="<?=PROOT?>js/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-    <script src="<?=PROOT?>js/bootstrap4/bootstrap.min.js"></script>
     <script src="<?=PROOT?>js/alertMsg.min.js?v=<?=VERSION?>"></script>
+    <!-- JQuery -->
+    <script type="text/javascript" src="<?=PROOT?>js/jquery-3.4.1.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="<?=PROOT?>js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="<?=PROOT?>js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="<?=PROOT?>js/mdb.min.js"></script>
   </body>
 </html>

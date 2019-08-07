@@ -4,6 +4,7 @@ use Core\H;
 use Core\Model;
 use App\Models\UserSessions;
 use Core\Cookie;
+use Core\SendMail;
 use Core\Session;
 use Core\Validators\MinValidator;
 use Core\Validators\MaxValidator;
@@ -104,7 +105,6 @@ class Users extends Model {
         $random = substr(str_shuffle($str), 0, 6);
         $username = "SP".$random;
         if(self::findByUsername($username)){
-           H::dnd("ITS RECURSING");
             return $this->getUsername();
         }
         return $username;
@@ -118,6 +118,7 @@ class Users extends Model {
       $this->verify = 0;
       $this->notify = 1;
       if($this->save()){
+          SendMail::verify($this->email,$this->id,$token,$this->username);
           return true;
       }
       return false;

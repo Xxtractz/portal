@@ -20,6 +20,7 @@ class UserSessions extends Model {
         'bind' => [Session::uagent_no_version(), Cookie::get(REMEMBER_ME_COOKIE_NAME)]
       ]);
     }
-    return $userSession;
+    if(!empty($userSession))
+        return $userSession;
   }
 }

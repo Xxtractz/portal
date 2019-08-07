@@ -31,7 +31,6 @@ class Users extends Model {
     $this->runValidation(new MaxValidator($this,['field'=>'email','rule'=>150,'msg'=>'Email must be less than 150 characters.']));
     $this->runValidation(new MinValidator($this,['field'=>'username','rule'=>6,'msg'=>'Username must be at least 6 characters.']));
     $this->runValidation(new MaxValidator($this,['field'=>'username','rule'=>150,'msg'=>'Username must be less than 150 characters.']));
-    $this->runValidation(new UniqueValidator($this,['field'=>['username','deleted'],'msg'=>'That username already exists. Please choose a new one.']));
     $this->runValidation(new RequiredValidator($this,['field'=>'password','msg'=>'Password is required.']));
     $this->runValidation(new MinValidator($this,['field'=>'password','rule'=>6,'msg'=>'Password must be a minimum of 6 characters.']));
     if($this->isNew()){
@@ -50,7 +49,12 @@ class Users extends Model {
     return self::findFirst(['conditions'=> "username = ?", 'bind'=>[$username]]);
   }
 
-  public static function currentUser() {
+  public static function findByEmail($email)
+  {
+      return self::findFirst(['conditions'=> "email = ?", 'bind'=>[$email]]);
+  }
+
+    public static function currentUser() {
     if(!isset(self::$currentLoggedInUser) && Session::exists(CURRENT_USER_SESSION_NAME)) {
       self::$currentLoggedInUser = self::findById((int)Session::get(CURRENT_USER_SESSION_NAME));
     }
@@ -110,7 +114,14 @@ class Users extends Model {
         return $username;
     }
 
-  public function registerNewUser($params){
+    public function emailExist($email)
+    {
+        if(self::findByEmail($email))
+            return false;
+        return true;
+    }
+
+    public function registerNewUser($params){
       $this->assign($params,Users::blackListedFormKeys);
       $token = H::gettoken();
       $this->username = $this->getUsername();

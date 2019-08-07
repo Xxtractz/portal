@@ -47,10 +47,15 @@ class RegisterController extends Controller {
     $newUser = new Users();
     if($this->request->isPost()) {
       $this->request->csrfCheck();
-      if($newUser->registerNewUser($this->request->get())){
-        Router::redirect('register/login');
+      if ($newUser->emailExist($this->request->get("email"))){
+          if($newUser->registerNewUser($this->request->get())){
+              Router::redirect('register/login');
+          }
+      }else{
+          $newUser->addErrorMessage('email','Sorry Email already exist');
       }
     }
+
     $this->view->newUser = $newUser;
     $this->view->displayErrors = $newUser->getErrorMessages();
     $this->view->render('register/register');

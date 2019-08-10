@@ -1,8 +1,6 @@
 <?php
 namespace Core;
 use App\Models\Users;
-use Core\Session;
-use http\Client\Curl\User;
 
 class FH {
 
@@ -18,13 +16,12 @@ class FH {
    * @param  array      $errors     (optional) array of all form errors
    * @return string                 returns an html string for input block
    */
-  public static function inputBlock($type, $label, $name, $value='', $inputAttrs=[], $divAttrs=[],$errors=[]){
+  public static function inputBlock($type, $name, $value='', $inputAttrs=[], $divAttrs=[],$errors=[]){
     $inputAttrs = self::appendErrorClass($inputAttrs,$errors,$name,'is-invalid');
     $divString = self::stringifyAttrs($divAttrs);
     $inputString = self::stringifyAttrs($inputAttrs);
     $id = str_replace('[]','',$name);
     $html = '<div' . $divString . '>';
-    $html .= '<label class="control-label" for="'.$id.'">'.$label.'</label>';
     $html .= '<input type="'.$type.'" id="'.$id.'" name="'.$name.'" value="'.$value.'"'.$inputString.' />';
     $html .= '<span class="invalid-feedback">'.self::errorMsg($errors,$name).'</span>';
     $html .= '</div>';
@@ -129,7 +126,7 @@ class FH {
     $id = str_replace('[]','',$name);
     $html = '<div' . $divString . '>';
     $html .= '<label for="'.$id.'" class="control-label">' . $label . '</label>';
-    $html .= '<textarea id="'.$id.'" name="'.$name.'"'.$inputString.'>'.$value.'</textarea>';
+    $html .= '<textarea id="'.$id.'" name="' .$name. '"'.$inputString. '>' .$value. '</textarea>';
     $html .= '<span class="invalid-feedback">'.self::errorMsg($errors,$name).'</span>';
     $html .= '</div>';
     return $html;
@@ -260,7 +257,7 @@ class FH {
     $html = "";
     foreach($options as $value => $display){
       $selStr = ($selectedValue == $value)? ' selected="selected"' : '';
-      $html .= '<option value="'.$value.'"'.$selStr.'>'.$display.'</option>';
+      $html .= '<option value="' .$value. '"' .$selStr. '>' .$display. '</option>';
     }
     return $html;
   }

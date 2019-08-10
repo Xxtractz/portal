@@ -24,7 +24,7 @@ use Core\FH;
         <small class="form-text text-muted mb-3 text-danger" id="err_id"></small>
 
         <!-- E-mail -->
-        <?= FH::inputBlock('text','Email','email',$this->newUser->email,['class'=>'form-control input-sm'],['class'=>'form-group'],$this->displayErrors) ?>
+        <?= FH::inputBlock('text','email',$this->newUser->email,['class'=>'form-control input-sm','placeholder'=>'E-mail'],['class'=>'form-group'],$this->displayErrors) ?>
         <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-3 ">
             All communication are done via email.
         </small>

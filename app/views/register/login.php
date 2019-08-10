@@ -10,8 +10,8 @@ use Core\FH;
     <form class="form" action="<?=PROOT?>register/login" method="post">
       <?= FH::csrfInput() ?>
       <?= FH::displayErrors($this->displayErrors) ?>
-      <?= FH::inputBlock('text','Username','username',$this->login->username,['class'=>'form-control'],['class'=>'form-group'],$this->displayErrors) ?>
-      <?= FH::inputBlock('password','Password','password',$this->login->password,['class'=>'form-control'],['class'=>'form-group'],$this->displayErrors) ?>
+      <?= FH::inputBlock('text','username',$this->login->username,['class'=>'form-control','placeholder'=>'SP Number'],['class'=>'form-group'],$this->displayErrors) ?>
+      <?= FH::inputBlock('password','password',$this->login->password,['class'=>'form-control','placeholder'=>'Password'],['class'=>'form-group'],$this->displayErrors) ?>
       <?= FH::checkboxBlock('Remember Me','remember_me',$this->login->getRememberMeChecked(),[],['class'=>'form-group'],$this->displayErrors) ?>
       <div class="d-flex justify-content-end">
         <div class="flex-grow-1 text-body">Don't have an account? <a href="<?=PROOT?>register/register">Sign Up</a></div>

@@ -7,7 +7,7 @@
 
   define('DB_NAME', 'eagle_data'); // database name
   define('DB_USER', 'root'); // database user
-  define('DB_PASSWORD', '123456'); // database password
+  define('DB_PASSWORD', ''); // database password
   define('DB_HOST', 'localhost'); // database host *** use IP address to avoid DNS lookup
 
   define('DEFAULT_CONTROLLER', 'Home'); // default controller if there isn't one defined in the url

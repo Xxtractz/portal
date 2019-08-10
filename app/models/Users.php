@@ -114,8 +114,7 @@ class Users extends Model {
         return $username;
     }
 
-    public function emailExist($email)
-    {
+    public function emailExist($email){
         if(self::findByEmail($email))
             return false;
         return true;

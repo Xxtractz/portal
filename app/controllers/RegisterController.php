@@ -47,7 +47,7 @@ class RegisterController extends Controller {
     $newUser = new Users();
     if($this->request->isPost()) {
       $this->request->csrfCheck();
-      if ($newUser->emailExist($this->request->get("email"))){
+      if ($this->request->get()){
           if($newUser->registerNewUser($this->request->get())){
               Router::redirect('register/login');
           }

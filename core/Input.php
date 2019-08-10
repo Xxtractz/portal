@@ -1,5 +1,6 @@
 <?php
 namespace Core;
+use App\Models\Users;
 use Core\FH;
 use Core\Router;
 
@@ -34,6 +35,12 @@ class Input {
     return (array_key_exists($input,$_REQUEST))?trim(FH::sanitize($_REQUEST[$input])) : '';
   }
 
+  public function checkemail(){
+      if(Users::findByEmail()){
+          return false;
+      }
+      return true;
+  }
   public function csrfCheck(){
     if(!FH::checkToken($this->get('csrf_token'))) Router::redirect('restricted/badToken');
     return true;

@@ -11,17 +11,53 @@ $this->start('body'); ?>
                     <div class="jumbotron text-center p-1">
                         <h3 class="text-center text-black-50">Your Membership</h3>
                     </div>
+                    <div class="col-sm jumbotron p-2">
+                        <div class="pl-4">
+                            <div class="row">
+                                <div class="col">
+                                    <p>Current Membership is for :</p>
+                                </div>
+                                <div class="col">
+                                    <p><strong>2 - Week(s)</strong></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <p>Subscribed on :</p>
+                                </div>
+                                <div class="col">
+                                    <p><strong>11/08/2019</strong></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <p>Valid Until :</p>
+                                </div>
+                                <div class="col">
+                                    <p><strong>25/08/2019</strong></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <p>Your Reference Number :</p>
+                                </div>
+                                <div class="col">
+                                    <p><strong>EPS-827615</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="col-sm jumbotron p-4">
                         <form class="form" action="" method="post">
                             <?= FH::csrfInput() ?>
                             <div class="form-group">
                                 <label for="activity">Please select how long you want to be active for</label>
-                                <select multiple class="form-control">
-                                    <option>1 - Week</option>
-                                    <option>2 - Weeks</option>
-                                    <option>3 - Weeks</option>
-                                    <option>4 - Weeks</option>
-                                    <option>8 - Weeks</option>
+                                <select multiple class="form-control" name="option" required>
+                                    <option value="1">1 - Week</option>
+                                    <option value="2">2 - Weeks</option>
+                                    <option value="3">3 - Weeks</option>
+                                    <option value="4">4 - Weeks</option>
+                                    <option value="8">8 - Weeks</option>
                                 </select>
                                 <div class="d-flex justify-content-end mt-2">
                                     <?= FH::submitTag('Subscribe',['class'=>'btn btn-primary']) ?>
@@ -37,7 +73,7 @@ $this->start('body'); ?>
                         <h3 class="text-center text-black-50">Your Downliners</h3>
                     </div>
                     <div class="row">
-                        <div class="col-sm-5 mx-auto">
+                        <div class="col-sm-6 mx-auto">
                             <div style="height: 300px;overflow: auto" class="shadow-lg">
                                 <table class="table table-striped table-bordered">
                                     <thead>
@@ -63,7 +99,7 @@ $this->start('body'); ?>
                             </div>
                         </div>
                         <br>
-                        <div class="col-sm-5 mx-auto">
+                        <div class="col-sm-6 mx-auto">
                             <div style="height: 300px;overflow: auto" class="shadow-lg">
                                 <table class="table table-striped table-bordered">
                                     <thead>

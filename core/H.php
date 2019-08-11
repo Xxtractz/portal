@@ -24,6 +24,12 @@ class H {
         $random = substr(str_shuffle($str), 0, 12);
         return $random;
     }
+    public static function getEndofsubscription($week){
+        $today = date("Y/m/d");
+        $date = new DateTime("".$today."");
+        $date->add(new DateInterval('P'.($week*7).'D'));
+        return $date->format('d/m/Y');
+    }
 
   public static function getObjectProperties($obj){
     return get_object_vars($obj);

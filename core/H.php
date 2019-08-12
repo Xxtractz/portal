@@ -2,6 +2,8 @@
 namespace Core;
 
 use App\Models\Users;
+use DateInterval;
+use DateTime;
 
 class H {
   public static function dnd($data) {
@@ -24,6 +26,15 @@ class H {
         $random = substr(str_shuffle($str), 0, 12);
         return $random;
     }
+    public static function getStartOfSubscription(){
+      return date("d/m/Y");
+    }
+
+    /**
+     * @param $week
+     * @return string
+     * @throws \Exception
+     */
     public static function getEndofsubscription($week){
         $today = date("Y/m/d");
         $date = new DateTime("".$today."");

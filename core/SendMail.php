@@ -26,6 +26,14 @@ class SendMail
         self::send($email, $subject, $message);
     }
 
+    public static function subscribe($email,$fname,$lname,$week,$ref) {
+        $subject = "Eagle Payout System Subscription";
+        $message = "Hi ".$fname." ".$lname."<br>";
+        $message .= "You have selected to be active for <Strong>".$week." Week(s).</Strong><br>";
+        $message .= "Here is your Reference number for payments <Strong>".$ref."</Strong><br> regards,<br><Strong>EPS</Strong>";
+        self::send($email, $subject, $message);
+    }
+
     public static function reset($email, $Password){
         $subject = "Eagle Payout System Password Reset!";
         $message = "New Password: $Password";

@@ -4,8 +4,6 @@ use Core\Controller;
 use Core\Router;
 use App\Models\Users;
 use App\Models\Login;
-use Core\H;
-use Core\Session;
 
 class RegisterController extends Controller {
 
@@ -47,7 +45,7 @@ class RegisterController extends Controller {
     $newUser = new Users();
     if($this->request->isPost()) {
       $this->request->csrfCheck();
-      if ($this->request->get()){
+      if ($newUser->emailExist($this->request->get("email"))){
           if($newUser->registerNewUser($this->request->get())){
               Router::redirect('register/login');
           }

@@ -1,5 +1,6 @@
 
-<?php use Core\FH;
+<?php use App\Models\Account;
+use Core\FH;
 
 $this->start('body'); ?>
 
@@ -11,6 +12,7 @@ $this->start('body'); ?>
                     <div class="jumbotron text-center p-1">
                         <h3 class="text-center text-black-50">Your Membership</h3>
                     </div>
+                    <?php if(Account::isMember()) { ?>
                     <div class="col-sm jumbotron p-2">
                         <div class="pl-4">
                             <div class="row">
@@ -18,7 +20,7 @@ $this->start('body'); ?>
                                     <p>Current Membership is for :</p>
                                 </div>
                                 <div class="col">
-                                    <p><strong>2 - Week(s)</strong></p>
+                                    <p><strong><?= Account::getweek() ?> - Week(s)</strong></p>
                                 </div>
                             </div>
                             <div class="row">
@@ -26,7 +28,7 @@ $this->start('body'); ?>
                                     <p>Subscribed on :</p>
                                 </div>
                                 <div class="col">
-                                    <p><strong>11/08/2019</strong></p>
+                                    <p><strong><?=Account::getStartSub() ?></strong></p>
                                 </div>
                             </div>
                             <div class="row">
@@ -34,7 +36,7 @@ $this->start('body'); ?>
                                     <p>Valid Until :</p>
                                 </div>
                                 <div class="col">
-                                    <p><strong>25/08/2019</strong></p>
+                                    <p><strong><?=Account::getEndSub() ?></strong></p>
                                 </div>
                             </div>
                             <div class="row">
@@ -42,17 +44,18 @@ $this->start('body'); ?>
                                     <p>Your Reference Number :</p>
                                 </div>
                                 <div class="col">
-                                    <p><strong>EPS-827615</strong></p>
+                                    <p><strong><?=Account::getRef() ?></strong></p>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <?php } else { ?>
                     <div class="col-sm jumbotron p-4">
                         <form class="form" action="" method="post">
                             <?= FH::csrfInput() ?>
                             <div class="form-group">
                                 <label for="activity">Please select how long you want to be active for</label>
-                                <select multiple class="form-control" name="option" required>
+                                <select multiple class="form-control" name="week" required>
                                     <option value="1">1 - Week</option>
                                     <option value="2">2 - Weeks</option>
                                     <option value="3">3 - Weeks</option>
@@ -65,6 +68,7 @@ $this->start('body'); ?>
                             </div>
                         </form>
                     </div>
+                    <?php } ?>
                 </div>
             </div>
             <div class="col-sm-8">

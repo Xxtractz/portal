@@ -1,5 +1,6 @@
 
-<?php use App\Models\Account;
+<?php
+use App\Models\Account;
 use Core\FH;
 
 $this->start('body'); ?>

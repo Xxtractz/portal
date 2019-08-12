@@ -2,7 +2,6 @@
   namespace App\Controllers;
   use App\Models\Account;
   use Core\Controller;
-  use Core\H;
   use Core\Router;
 
   class HomeController extends Controller {
